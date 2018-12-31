@@ -1,27 +1,18 @@
 <template>
-  <h1>abc
-
-    <displayer @something:done="run" />
-  </h1>
-
+  <button>abc</button>
 </template>
 
 <script>
-import Displayer from './Displayer';
-
 export default {
-  name: 'HelloWorld',
-  components: {
-    Displayer,
-  },
+  name: 'Displayer',
   props: {
     msg: String
   },
-  methods: {
-    run(data) {
-      console.log('run');
-      console.log(data);
-    }
+  mounted() {
+    setInterval(() => {
+      console.log('....');
+      this.$emit('something:done', 'abc');
+    }, 2000)
   }
 }
 </script>
